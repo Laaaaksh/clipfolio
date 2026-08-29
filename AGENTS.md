@@ -50,6 +50,11 @@ clip and transcode it - skipped if `ffmpeg`/`ffprobe` aren't on `PATH`.
 - **Chrome's native `<video controls>` does not reliably start playback from a synthetic
   `element.click()`** (headless or not) - it does from a focused element + a `Space` keypress. Only
   matters for browser-automation/demo scripts, not real users.
+- **The default branch is `master`, not `main`.** `.github/workflows/ci.yml`, `CONTRIBUTING.md`, and
+  `SECURITY.md` all hardcode the branch name - a new workflow or doc file that assumes `main` (the
+  more common default elsewhere) silently never runs/applies. Releases follow the process in
+  `CONTRIBUTING.md`'s "Releases" section - land the CHANGELOG version bump via PR first, then tag from
+  `master` (`git tag vX.Y.Z && git push origin vX.Y.Z`); `.github/workflows/release.yml` does the rest.
 
 ## Maintaining this file
 

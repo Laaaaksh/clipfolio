@@ -24,18 +24,18 @@ make build
 
 ## Contribution workflow
 
-The `main` branch is protected: every change lands through a pull request, required status checks
+The `master` branch is protected: every change lands through a pull request, required status checks
 must pass, and protection is enforced for everyone - including the maintainer. There are no direct
-pushes to `main`.
+pushes to `master`.
 
 1. Fork the repo on GitHub, then clone your fork (command above).
-2. Create a descriptively named feature branch from `main`.
+2. Create a descriptively named feature branch from `master`.
 3. Make your changes as small, focused commits, each leaving the tree buildable.
 4. Run `make lint` and `make test` - both must pass. See below for the database `make test` needs.
 5. If your change is user-facing (a feature, fix, or behavior change), add one bullet under the
    `Unreleased` heading in [CHANGELOG.md](CHANGELOG.md).
 6. Push the branch to your fork.
-7. Open a pull request against `main` here.
+7. Open a pull request against `master` here.
 
 A PR can merge only when the `Test` and `Lint` checks pass and all conversation threads are
 resolved.
@@ -54,6 +54,14 @@ CLIPFOLIO_TEST_DATABASE_URL="postgres://postgres:postgres@localhost:5433/postgre
 `make test` always runs with `-p 1` (packages sequential, not parallel) - `internal/db` and
 `internal/api` both truncate the same shared test database between test runs, and running those
 packages concurrently corrupts each other's fixtures.
+
+### Frontend testing (known gap)
+
+`web/dashboard` and `web/player` - the React dashboard and the embeddable player that render the
+CTA overlay and lead-capture gate a viewer actually sees - have no automated tests and no `test`
+script in either `package.json`. The 1,107 lines of Go tests above cover the backend the frontend
+talks to, but not the frontend's own rendering logic. Until that's addressed, verify frontend
+changes manually against the flow in [the demo section below](#reproducing-the-readme-demo).
 
 ### Reproducing the README demo
 
@@ -78,7 +86,7 @@ Releases are cut by pushing a tag; GitHub Actions does the rest (`.github/workfl
    compare links at the bottom of the file - add
    `[x.y.z]: https://github.com/Laaaaksh/clipfolio/compare/v<prev>...vx.y.z` and repoint
    `[Unreleased]` at `compare/vx.y.z...HEAD`.
-3. Land those changelog edits on `main` through a pull request (see the contribution workflow
+3. Land those changelog edits on `master` through a pull request (see the contribution workflow
    above), then tag and push:
 
    ```bash

@@ -5,6 +5,8 @@ All notable changes to clipfolio are documented in this file. Format is based on
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-08-30
+
 ### Added
 - Video upload with background transcoding to adaptive-bitrate HLS (360p/720p/1080p, skipping
   upscaling past the source resolution).
@@ -19,4 +21,5 @@ All notable changes to clipfolio are documented in this file. Format is based on
 - Docker Compose setup bundling Postgres and MinIO, so `docker compose up --build` runs the whole
   stack with no cloud account required to try it.
 
-[Unreleased]: https://github.com/Laaaaksh/clipfolio/compare/305597b...HEAD
+[Unreleased]: https://github.com/Laaaaksh/clipfolio/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/Laaaaksh/clipfolio/compare/305597b...v0.1.0

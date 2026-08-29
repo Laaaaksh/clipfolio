@@ -3,7 +3,7 @@
 ## Supported versions
 
 clipfolio is a young project. Security fixes are made against the **latest
-release** and `main` only.
+release** and `master` only.
 
 | Version        | Supported |
 | -------------- | --------- |
