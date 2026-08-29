@@ -67,6 +67,9 @@ docker compose up --build
 
 Then open `http://localhost:8080`, create the admin account, and upload a video.
 
+If port 8080 is already taken on your machine, edit the `"8080:8080"` line under the `clipfolio`
+service in `docker-compose.yml` to `"<some-other-port>:8080"` and use that port instead.
+
 MinIO is meant for trying clipfolio out and for small self-hosted deploys behind your own reverse
 proxy. For a real deploy reachable from the public internet, point the same environment variables at
 a real bucket (S3, R2, B2) with public read access on the video prefix — see
@@ -116,9 +119,12 @@ each video's webhook at your CRM's inbound URL and clipfolio POSTs a JSON payloa
 
 ## Is the demo real?
 
-Yes. The screenshot and GIF above are real captures from the running app (`docker compose up`,
-a synthetic ffmpeg-generated test clip, driven through the actual dashboard and embedded player
-in a real browser) — not a mockup. See [CONTRIBUTING.md](CONTRIBUTING.md) for how to reproduce it.
+Yes. The GIF above and the screenshot below are real captures from the running app
+(`docker compose up`, a synthetic ffmpeg-generated test clip, driven through the actual dashboard
+and embedded player in a real browser) — not a mockup. See [CONTRIBUTING.md](CONTRIBUTING.md) for
+how to reproduce it.
+
+<img src="docs/assets/screenshot-dashboard.png" alt="clipfolio dashboard: a video's detail page showing the live preview with a Book a demo CTA, the copyable embed snippet, and analytics (impressions, plays, play rate, avg watched)" width="640">
 
 ## Changelog
 
