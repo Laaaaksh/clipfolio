@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="200" viewBox="0 0 720 200" role="img" aria-label="clipfolio">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1d4ed8"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="200" rx="16" fill="url(#bg)"/>
+
+  <!-- play button -->
+  <circle cx="98" cy="100" r="52" fill="#ffffff" fill-opacity="0.12"/>
+  <circle cx="98" cy="100" r="52" fill="none" stroke="#ffffff" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M83 76 L128 100 L83 124 Z" fill="#ffffff"/>
+
+  <!-- wordmark -->
+  <text x="176" y="94" font-family="-apple-system, Helvetica, Arial, sans-serif" font-size="46" font-weight="700" fill="#ffffff">clipfolio</text>
+  <text x="177" y="126" font-family="-apple-system, Helvetica, Arial, sans-serif" font-size="17" fill="#c7d2fe">Business video hosting with real analytics</text>
+
+  <!-- drop-off curve accent -->
+  <polyline points="176,158 260,158 320,164 400,172 520,176 640,178" fill="none" stroke="#93c5fd" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+  <circle cx="176" cy="158" r="3.5" fill="#93c5fd"/>
+  <circle cx="400" cy="172" r="3.5" fill="#93c5fd"/>
+  <circle cx="640" cy="178" r="3.5" fill="#93c5fd"/>
+</svg>

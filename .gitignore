@@ -1,0 +1,17 @@
+# Build artifacts
+/bin/
+
+# Generated frontend bundles - `make frontend` (re)builds these; a minimal
+# stub is created on demand by `make build`/`make test` if they're absent.
+/internal/api/dashboarddist/
+/internal/api/playerdist/
+
+# Node
+node_modules/
+web/dashboard/dist/
+
+# Environment
+.env
+
+# OS
+.DS_Store

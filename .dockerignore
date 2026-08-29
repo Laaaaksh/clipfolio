@@ -1,0 +1,10 @@
+.git
+bin/
+node_modules/
+web/dashboard/node_modules/
+web/dashboard/dist/
+web/player/node_modules/
+internal/api/dashboarddist/
+internal/api/playerdist/
+*.log
+.env
