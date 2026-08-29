@@ -1,0 +1,16 @@
+{
+  "name": "@clipfolio/player",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "build": "esbuild src/player.ts --bundle --minify --outfile=../../internal/api/playerdist/player.js --format=iife",
+    "dev": "esbuild src/player.ts --bundle --outfile=../../internal/api/playerdist/player.js --format=iife --watch"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "typescript": "^5.6.0"
+  },
+  "dependencies": {
+    "hls.js": "^1.5.17"
+  }
+}

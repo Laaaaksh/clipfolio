@@ -1,0 +1,48 @@
+name: Bug report
+description: Report a problem with clipfolio
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: |
+        Steps to reproduce the problem, and what you expected vs what actually happened.
+      placeholder: |
+        1. Upload a video
+        2. Add a CTA at the end
+        3. See error
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: clipfolio version
+      description: The release tag or commit SHA you're running.
+      placeholder: "v0.1.0 or a49258a"
+    validations:
+      required: true
+  - type: dropdown
+    id: deployment
+    attributes:
+      label: How are you running clipfolio?
+      options:
+        - docker compose (bundled Postgres/MinIO)
+        - Docker image against my own Postgres/S3
+        - Built from source
+    validations:
+      required: true
+  - type: input
+    id: storage-backend
+    attributes:
+      label: Storage backend
+      description: AWS S3, Cloudflare R2, Backblaze B2, MinIO, etc.
+    validations:
+      required: false
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: Server logs (`docker compose logs clipfolio`) or browser console output, if any.
+    validations:
+      required: false
