@@ -2,9 +2,9 @@
 
 <img src="docs/assets/clipfolio-banner.svg" alt="clipfolio" width="640">
 
-**clipfolio** — self-hosted business video hosting with the analytics layer that's actually worth paying for.
-Upload a video, embed one `<script>` tag, and get a drop-off curve, clickable CTA overlays, and an
-email-capture gate — without a Wistia or Vimeo Business subscription.
+**clipfolio** — self-hosted business video hosting with the analytics layer Wistia and Vimeo Business
+charge a subscription for. Upload a video, embed one `<script>` tag, and get a drop-off curve,
+clickable CTA overlays, and an email-capture gate on your own infrastructure.
 
 [![Star this repo](https://img.shields.io/github/stars/Laaaaksh/clipfolio?style=for-the-badge&logo=github&label=star%20this%20repo&color=yellow)](https://github.com/Laaaaksh/clipfolio/stargazers)
 [![Built for Wistia/Vimeo switchers](https://img.shields.io/badge/built_for-Wistia%20%2F%20Vimeo%20switchers-2563eb?style=for-the-badge&logo=airplayvideo&logoColor=white)](#why-switch)
@@ -116,6 +116,25 @@ All configuration is environment variables (see `.env.example`):
 Lead webhooks are configured per-video from the dashboard, not via environment variables — point
 each video's webhook at your CRM's inbound URL and clipfolio POSTs a JSON payload
 (`{event, videoId, sessionId, email, name, capturedAt}`) on every capture.
+
+## Limits
+
+Read this before you install anything:
+
+- **The dashboard and embeddable player have no automated tests.** The Go backend is thoroughly
+  covered (37 tests against real Postgres and real ffmpeg, no mocks); the React dashboard and the
+  TypeScript player — the actual UI a viewer sees — are currently verified by hand, not by CI. See
+  [CONTRIBUTING.md](CONTRIBUTING.md#frontend-testing-known-gap).
+- **Transcoding runs in-process, not on a job queue.** A small fixed pool of goroutines transcodes
+  uploads on the same host as the API server — fine for a single self-hosted instance, but it
+  doesn't horizontally scale across multiple instances or resume a job that was mid-transcode when
+  the process restarted.
+- **No native CRM integrations.** Leads reach you through a single per-video webhook; wiring that
+  into HubSpot, Salesforce, or anything else is on you.
+- **No live streaming, transcripts, or captions.** Upload-and-transcode only.
+- **No SSO.** Email and password only.
+- **Storage and transcoding compute aren't free just because the software is.** You bring your own
+  S3-compatible bucket and the CPU time to transcode; clipfolio doesn't bundle or subsidize either.
 
 ## Is the demo real?
 
