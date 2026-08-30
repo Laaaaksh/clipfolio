@@ -1,4 +1,4 @@
-.PHONY: build run test lint tidy clean frontend ensure-frontend-stub
+.PHONY: build run test lint tidy clean frontend ensure-frontend-stub demo
 
 BIN := bin/clipfolio
 
@@ -32,3 +32,16 @@ tidy:
 
 clean:
 	rm -rf bin internal/api/dashboarddist internal/api/playerdist web/dashboard/dist web/player/dist
+
+# Boots a fresh stack, records a real walkthrough through the actual UI, and
+# writes docs/assets/demo.mp4 + demo.gif. See scripts/record-demo/README.md.
+demo:
+	docker compose down -v
+	docker compose up -d --build
+	@echo "waiting for clipfolio to be reachable..."
+	@until curl -sf http://localhost:8080/ >/dev/null 2>&1; do sleep 1; done
+	cd scripts/record-demo && npm install && npx playwright install chromium
+	cd scripts/record-demo && npm run clip
+	cd scripts/record-demo && npm run record
+	cd scripts/record-demo && ./convert.sh
+	docker compose down -v

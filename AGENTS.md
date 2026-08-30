@@ -28,6 +28,13 @@ concurrently corrupts each other's fixtures via the same database.
 `internal/transcode` has a real end-to-end test that shells out to `ffmpeg` to generate a synthetic
 clip and transcode it - skipped if `ffmpeg`/`ffprobe` aren't on `PATH`.
 
+## Demo assets
+
+`docs/assets/demo.mp4`/`demo.gif` (embedded near the top of the README) are produced by
+`make demo`, which drives `scripts/record-demo` - a self-contained, dev-only Playwright package
+(not part of the product build) that boots a fresh stack and records a real walkthrough through the
+actual UI. See `scripts/record-demo/README.md` to regenerate them or tune pacing.
+
 ## Sharp edges found by dogfooding (all now covered by regression tests - don't reintroduce)
 
 - **Every `internal/db` model needs an explicit camelCase `json:` tag.** A struct field with no tag

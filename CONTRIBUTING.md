@@ -65,15 +65,20 @@ changes manually against the flow in [the demo section below](#reproducing-the-r
 
 ### Reproducing the README demo
 
-The screenshot and GIF in the README are real captures, not mockups. To reproduce them yourself:
+The screenshot and GIF/MP4 in the README are real captures, not mockups. The GIF/MP4 are produced by
+a committed, re-runnable Playwright script - see [scripts/record-demo](scripts/record-demo) for how
+it works, or just run:
 
 ```bash
-docker compose up --build
+make demo
 ```
 
-Then create the admin account, upload any short video, add a CTA and a lead-capture gate from the
-video's page, and play it back through the embed preview - the dashboard's analytics update live as
-you watch.
+That boots a fresh stack, seeds it through the real UI (upload, transcode, CTA, lead gate, a viewer
+session, and the resulting analytics), and writes `docs/assets/demo.mp4` and `docs/assets/demo.gif`.
+
+To reproduce the flow by hand instead: `docker compose up --build`, then create the admin account,
+upload any short video, add a CTA and a lead-capture gate from the video's page, and play it back
+through the embed preview - the dashboard's analytics update live as you watch.
 
 ## Releases
 

@@ -21,6 +21,15 @@ clickable CTA overlays, and an email-capture gate on your own infrastructure.
 
 </div>
 
+## Demo
+
+![clipfolio demo](docs/assets/demo.gif)
+
+A real, unedited run against `docker compose up`: upload a generated test clip, watch it transcode
+and become playable from object storage, configure a CTA and a lead-capture gate, play through as a
+viewer (submit the lead form, hit the CTA), then see the resulting drop-off curve, view stats, and
+captured lead back in the dashboard. Full quality: [docs/assets/demo.mp4](docs/assets/demo.mp4).
+
 ## What it does
 
 - Upload a video and get adaptive-bitrate HLS back automatically (`ffmpeg` transcodes 360p/720p/1080p renditions server-side)
@@ -30,10 +39,6 @@ clickable CTA overlays, and an email-capture gate on your own infrastructure.
 - Gate playback behind an email-capture form, before playback or at a timestamp, and export leads via a webhook into whatever CRM you already use
 - Track impressions, play rate, and average watch percentage per video, updating live while people watch
 - Runs as one Go binary plus Postgres and an S3-compatible bucket — self-hosted, no telemetry, no phone-home
-
-<img src="docs/assets/demo.gif" alt="clipfolio demo: a viewer hits a lead-capture gate three seconds in, submits their email, watches to the end where a Book a demo CTA appears, then the dashboard shows the resulting drop-off curve and the captured lead" width="640">
-
-*Real capture from the running app: a lead-gated viewer session followed by the dashboard's own analytics for that session — see [Is the demo real?](#is-the-demo-real) below.*
 
 ## Why switch
 
@@ -138,10 +143,11 @@ Read this before you install anything:
 
 ## Is the demo real?
 
-Yes. The GIF above and the screenshot below are real captures from the running app
+Yes. The GIF/MP4 above and the screenshot below are real captures from the running app
 (`docker compose up`, a synthetic ffmpeg-generated test clip, driven through the actual dashboard
-and embedded player in a real browser) — not a mockup. See [CONTRIBUTING.md](CONTRIBUTING.md) for
-how to reproduce it.
+and embedded player in a real browser) — not a mockup. The demo at the top is recorded by a
+committed, re-runnable Playwright script; see [scripts/record-demo](scripts/record-demo) or run
+`make demo` to reproduce it yourself.
 
 <img src="docs/assets/screenshot-dashboard.png" alt="clipfolio dashboard: a video's detail page showing the live preview with a Book a demo CTA, the copyable embed snippet, and analytics (impressions, plays, play rate, avg watched)" width="640">
 
