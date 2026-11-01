@@ -6,11 +6,11 @@
 charge a subscription for. Upload a video, embed one `<script>` tag, and get a drop-off curve,
 clickable CTA overlays, and an email-capture gate on your own infrastructure.
 
-[![Star this repo](https://img.shields.io/github/stars/Laaaaksh/clipfolio?style=for-the-badge&logo=github&label=star%20this%20repo&color=yellow)](https://github.com/Laaaaksh/clipfolio/stargazers)
+[![Star this repo](https://img.shields.io/github/stars/attentionfs/clipfolio?style=for-the-badge&logo=github&label=star%20this%20repo&color=yellow)](https://github.com/attentionfs/clipfolio/stargazers)
 [![Built for Wistia/Vimeo switchers](https://img.shields.io/badge/built_for-Wistia%20%2F%20Vimeo%20switchers-2563eb?style=for-the-badge&logo=airplayvideo&logoColor=white)](#why-switch)
 
-[![CI](https://github.com/Laaaaksh/clipfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/Laaaaksh/clipfolio/actions/workflows/ci.yml)
-[![Release](https://img.shields.io/github/v/release/Laaaaksh/clipfolio?color=green&display_name=tag)](https://github.com/Laaaaksh/clipfolio/releases)
+[![CI](https://github.com/attentionfs/clipfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/attentionfs/clipfolio/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/attentionfs/clipfolio?color=green&display_name=tag)](https://github.com/attentionfs/clipfolio/releases)
 [![License: MIT](https://img.shields.io/badge/license-MIT-purple.svg)](LICENSE)
 [![Go](https://img.shields.io/badge/go-1.26+-00ADD8?logo=go&logoColor=white)](go.mod)
 [![Docker](https://img.shields.io/badge/docker-compose%20up-2496ED?logo=docker&logoColor=white)](#install)
@@ -64,7 +64,7 @@ honest caveat on "free to run" below before you decide.
 The fastest way to a working instance — Postgres, MinIO (a local S3-compatible bucket), and clipfolio itself, all with no cloud account required to try it:
 
 ```bash
-git clone https://github.com/Laaaaksh/clipfolio.git
+git clone https://github.com/attentionfs/clipfolio.git
 cd clipfolio
 cp .env.example .env
 docker compose up --build
@@ -83,7 +83,7 @@ a real bucket (S3, R2, B2) with public read access on the video prefix — see
 ### Building from source
 
 ```bash
-git clone https://github.com/Laaaaksh/clipfolio.git
+git clone https://github.com/attentionfs/clipfolio.git
 cd clipfolio
 make frontend   # builds the dashboard and embeddable player (needs Node)
 make build      # builds bin/clipfolio (needs Go)
@@ -165,7 +165,7 @@ Found a security issue? Please report it privately — see [SECURITY.md](SECURIT
 
 ## Star this repo
 
-If clipfolio saves you a Wistia bill, [leave a star](https://github.com/Laaaaksh/clipfolio/stargazers) — it helps other people find it.
+If clipfolio saves you a Wistia bill, [leave a star](https://github.com/attentionfs/clipfolio/stargazers) — it helps other people find it.
 
 <a href="https://www.star-history.com/?repos=laaaaksh%2Fclipfolio&type=date&legend=top-left">
  <picture>

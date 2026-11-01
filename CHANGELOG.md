@@ -21,5 +21,5 @@ All notable changes to clipfolio are documented in this file. Format is based on
 - Docker Compose setup bundling Postgres and MinIO, so `docker compose up --build` runs the whole
   stack with no cloud account required to try it.
 
-[Unreleased]: https://github.com/Laaaaksh/clipfolio/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/Laaaaksh/clipfolio/compare/305597b...v0.1.0
+[Unreleased]: https://github.com/attentionfs/clipfolio/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/attentionfs/clipfolio/compare/305597b...v0.1.0
